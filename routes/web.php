@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::any('products/search', 'ProductController@search')->name('products.search');
+
 Route::resource('products', 'ProductController'); //->middleware('auth');
 
 
