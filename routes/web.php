@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('products/search', 'ProductController@search')->name('products.search');
+Route::any('products/search', 'ProductController@search')->name('products.search')->middleware('auth');
 
-Route::resource('products', 'ProductController'); //->middleware('auth');
+Route::resource('products', 'ProductController')->middleware(['auth', 'check.is.admin']);
 
 
 // ROTAS ANY - ACEITA TODOS OS TIPOS DE REQUISIÇÃO HTTP
@@ -97,3 +97,7 @@ Route::resource('products', 'ProductController'); //->middleware('auth');
 // Route::get('/login', function () {
 //     return 'login';
 // })->name('login');
+
+Auth::routes(['register' => false]);
+
+// Route::get('/home', 'HomeController@index')->name('home');
