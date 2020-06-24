@@ -35,7 +35,7 @@
                         @endif
                     </td>
                     <td>{{ $product->name }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>R${{ $product->price }}</td>
                     <td>
                         <a href="{{ route('products.edit',[ $product->id]) }}" class="btn btn-primary btn-sm text-white">
                                 <i class="fas fa-edit"></i>
